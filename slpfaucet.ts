@@ -3,10 +3,12 @@ import { BITBOX } from "bitbox-sdk";
 import { GrpcClient } from "grpc-bchrpc-node";
 import * as slpjs from "slpjs";
 import { BchdNetwork, BchdValidator, Utils } from "slpjs";
+import { FaucetUtils } from "./faucet_utils";
 
 const bitbox = new BITBOX();
 const client = new GrpcClient({url: "bchd.ny1.simpleledger.io" });
 const validator = new BchdValidator(client, console);
+const faucetUtils = new FaucetUtils(bitbox, validator)
 
 export class SlpFaucetHandler {
     public addresses: string[];
@@ -144,8 +146,12 @@ export class SlpFaucetHandler {
         throw Error("There are no addresses with sufficient balance");
     }
 
-    public async simpleTokenSend(tokenId: string, sendAmount: BigNumber, inputUtxos: slpjs.SlpAddressUtxoResult[], tokenReceiverAddresses: string | string[], changeReceiverAddress: string): Promise<string> {
+    public async tokenSend(tokenId: string, sendAmount: BigNumber, inputUtxos: slpjs.SlpAddressUtxoResult[], tokenReceiverAddresses: string | string[], changeReceiverAddress: string): Promise<string> {
         await this.increaseChainLength();
+        if (process.env.NFT === 'yes') {
+            const receiverAddress = (typeof tokenReceiverAddresses === 'string') ? tokenReceiverAddresses : tokenReceiverAddresses[0];
+            return await faucetUtils.nftTokenSend(tokenId, inputUtxos, receiverAddress, changeReceiverAddress, this.wifs[changeReceiverAddress]);
+        }
         return await this.network.simpleTokenSend(tokenId, sendAmount, inputUtxos, tokenReceiverAddresses, changeReceiverAddress);
     }
 

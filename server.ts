@@ -70,7 +70,7 @@ app.post("/", async (req, res) => {
         let inputs: slpjs.SlpAddressUtxoResult[] = [];
         inputs = inputs.concat(changeAddr.balance.slpTokenUtxos[process.env.TOKENID!]).concat(changeAddr.balance.nonSlpUtxos);
         inputs.map((i) => i.wif = slpFaucet.wifs[changeAddr.address]);
-        sendTxId = await slpFaucet.simpleTokenSend(process.env.TOKENID!, new BigNumber(faucetQty), inputs, address, changeAddr.address);
+        sendTxId = await slpFaucet.tokenSend(process.env.TOKENID!, new BigNumber(faucetQty), inputs, address, changeAddr.address);
     } catch (error) {
         console.log(error);
         res.render("index", { txid: null, error: "Server error." });
