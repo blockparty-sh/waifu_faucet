@@ -47,8 +47,8 @@ export class FaucetUtils {
 
         const name = process.env.NFTNAME! || "SLP Faucet NFT";
         const ticker = process.env.NFTTICKER! || "SFNFT";
-        const documentUri: string|null = process.env.DOCUMENTURI!;
-        const documentHash: Buffer|null = Buffer.from(process.env.DOCUMENTHASH!, 'hex');
+        const documentUri: string|null = process.env.DOCUMENTURI || null;
+        const documentHash: Buffer|null = process.env.DOCUMENTHASH ? Buffer.from(process.env.DOCUMENTHASH, 'hex') : null;
 
         const genesisTxHex = this.network.txnHelpers.simpleNFT1ChildGenesis({
             nft1GroupId: tokenId,

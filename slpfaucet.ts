@@ -148,7 +148,7 @@ export class SlpFaucetHandler {
 
     public async tokenSend(tokenId: string, sendAmount: BigNumber, inputUtxos: slpjs.SlpAddressUtxoResult[], tokenReceiverAddresses: string | string[], changeReceiverAddress: string): Promise<string> {
         await this.increaseChainLength();
-        if (process.env.NFT === 'yes') {
+        if (process.env.NFT!.toLowerCase() === 'yes') {
             const receiverAddress = (typeof tokenReceiverAddresses === 'string') ? tokenReceiverAddresses : tokenReceiverAddresses[0];
             return await faucetUtils.nftTokenSend(tokenId, inputUtxos, receiverAddress, changeReceiverAddress, this.wifs[changeReceiverAddress]);
         }
