@@ -8,8 +8,10 @@ body {
   background: #ffffff;
 }
 .jumbotron {
-	background: url('../img/top.svg') top right no-repeat;
+	background: url('../img/wall.jpg') no-repeat;
+    background-size: cover;
 	padding: 6rem 2rem;
+    padding-top:0rem!important;
 }
 
 h3 { font-size: 32px; font-weight: 700; }
@@ -22,12 +24,16 @@ p.lead { font-weight: 700; }
 	margin: 20px 0; 
 }
 
-.bg-secondary {	background-color: #5EBD6D!important; }
+.bg-secondary {	background-color: #ffbfbf!important; }
 .bg-secondary p { color: #FFF; }
 .bg-secondary h3 { color: #111; }
 
-a { color: #5EBD6D; transition: color 0.3s ease; }
-a:hover, a:focus { color: #111; text-decoration: underline; }
+a {
+    background: #e489ef40;
+    color: white;
+    transition: all 0.3s ease;
+}
+a:hover, a:focus { color: white; text-decoration: underline; -webkit-text-stroke-width: 2px; }
 .bg-secondary a {
   color: #fff;
   text-decoration: underline;
@@ -38,6 +44,8 @@ a:hover, a:focus { color: #111; text-decoration: underline; }
 /* Header/Nav */
 .masthead {
   margin-bottom: 2rem;
+  position: absolute;
+  right:0;
 }
 .masthead .inner {
 	padding: 1rem 3rem 3rem 3rem;
@@ -87,12 +95,10 @@ a:hover, a:focus { color: #111; text-decoration: underline; }
 	margin: 60px 0;
 }
 .token-selector-form input[type="text"], .token-selector-form select, .token-selector-form input[type="submit"] {
-	-webkit-box-shadow: 0px 0px 47px 0px rgba(94,189,109,0.3);
-	-moz-box-shadow: 0px 0px 47px 0px rgba(94,189,109,0.3);
-	box-shadow: 0px 0px 47px 0px rgba(94,189,109,0.3);
+    box-shadow: 0px 0px 47px 0px rgb(168 119 177 / 0.3);
 }
 .token-selector-form input[type="text"] {
-	border: 1px solid #5EBD6D;
+	border: 1px solid #e489ef;
 	padding: .4em 1em;
 	border-radius: 4px;
 	width: 50%;
@@ -101,20 +107,24 @@ a:hover, a:focus { color: #111; text-decoration: underline; }
 .token-selector-form input[type="text"]:focus {
 	outline: none !important;
 	border: 1px solid #FFF;
-	-webkit-box-shadow: 0px 0px 47px 0px rgba(136,136,136,0.3);
-	-moz-box-shadow: 0px 0px 47px 0px rgba(136,136,136,0.3);
-	box-shadow: 0px 0px 47px 0px rgba(136,136,136,0.3);
+    box-shadow: 0px 0px 47px 0px rgb(168 119 177 / 0.3);
 }
 input[type="submit"] { 
-	background-color: #5EBD6D; 
+	background-color: #e489ef; 
 	color: #FFF; 
-	border-radius: 4px; 
+	border-radius: 34px; 
 	border: none; 
 	padding: .6em 1em; 
 	cursor: pointer;  
+    font-family: 'Hachi Maru Pop', cursive;
 	transition: background-color 0.3s ease;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
 }
-input[type="submit"]:hover { background-color: #111; }
+input[type="submit"]:hover {
+	background-color: #f1a3fb; 
+}
 
 /* Custom Select styles 
 https://www.w3schools.com/howto/howto_custom_select.asp */
@@ -210,4 +220,28 @@ img.logo-main { width: 15%; margin-bottom: 30px; }
 	.nav-masthead .nav-link { font-size: 13px; }
 	.custom-select { margin-bottom: 20px; }
 	.custom-select, .token-selector-form input[type="text"], .token-selector-form select, .token-selector-form input[type="submit"] { width: 100%!important; }	
+}
+
+body {
+    font-family: 'Mali', cursive;
+    font-size: 30px;
+    -webkit-text-fill-color: black;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #252525;
+}
+
+h1 {
+    font-size: 9rem;
+    font-family: 'Hachi Maru Pop', cursive;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #252525;
+}
+
+::selection {
+    background: pink;
+    color: white;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: white;
 }
