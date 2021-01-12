@@ -17,17 +17,17 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Social Cards -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="" />
     <meta name="twitter:title" content="Waifu Faucet" />
-    <meta name="twitter:description" content="Create your own Waifu with Bitcoin Cash" />
-    <meta name="twitter:image" content="https://waifufaucet.com/img/social.png" />
+    <meta name="twitter:description" content="Claim your own Waifu with Bitcoin Cash" />
+    <meta name="twitter:image" content="https://waifufaucet.com/img/social.jpg" />
     <meta name="twitter:image:alt" content="The Waifu Faucet" />
+    <meta name="twitter:card" content="summary_large_image">
     <meta property="og:url" content="https://waifufaucet.com" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Waifu Faucet" />
-    <meta property="og:description" content="Claim free Waifus" />
-    <meta property="og:image" content="" />
+    <meta property="og:description" content="Claim your own Waifu with Bitcoin Cash" />
+    <meta property="og:image" content="https://waifufaucet.com/img/social.jpg" />
+    <meta property="og:site_name" content="Waifu Faucet">
 
     <title>Waifu Faucet</title>
 
@@ -54,11 +54,13 @@
             <h1>Waifu Faucet</h1>
         <p class="outline">The Waifu faucet is designed to bring awareness and circulation to the Waifu economy.</p>
 
-        <div class="token-selector-form" action="/" method="post" >
+        <form class="token-selector-form" action="/" method="post" >
           <input name="address" type="text" placeholder="Enter your SLP address, ex: simpleledger:qp7l6ns2g…" required>
           
           <% if(txid !== null){ %>
-          <p><a href="https://simpleledger.info/#token/<%= txid %>"><img src="https://icons.waifufaucet.com/128/<%= txid %>".png></a></p>
+          <p>
+          Congratulations, please click on your new waifu<br>
+          <a href="https://simpleledger.info/#token/<%= txid %>"><img src="https://icons.waifufaucet.com/128/<%= txid %>.png"></a></p>
           <% } %>
     
           <% if(error !== null){ %>
@@ -69,7 +71,6 @@
         </form>
           <!-- end .token-selector-form -->
           
-        </div>
       <!-- end .jumbotron -->
       
       <div class="blurb bg-secondary p-5">
