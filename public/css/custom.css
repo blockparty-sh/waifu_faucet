@@ -6,9 +6,19 @@ html,
 body {
   font-family: 'Montserrat', sans-serif;
   background: #ffffff;
+  min-height:100vh;
+}
+
+.outline {
+    text-shadow: 2px 0px white, 0px 2px white, 0px -2px white, -2px -2px white;
+}
+.blurb {
+    border-radius: 70% 40% 50% 30%;
+    border: 10px solid white;
+    border-width: 10px 25px 19px 12px;
 }
 .jumbotron {
-	background: url('../img/wall.jpg') no-repeat;
+	background: url('../img/social.png') no-repeat;
     background-size: cover;
 	padding: 6rem 2rem;
     padding-top:0rem!important;
@@ -117,13 +127,17 @@ input[type="submit"] {
 	padding: .6em 1em; 
 	cursor: pointer;  
     font-family: 'Hachi Maru Pop', cursive;
-	transition: background-color 0.3s ease;
+	transition: all 0.3s ease;
     -webkit-text-fill-color: white;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
+    border: 10px solid white;
+    box-shadow: 0px 5px 1px 10px rgba(250,200,200,1) !important;
 }
 input[type="submit"]:hover {
 	background-color: #f1a3fb; 
+    border: 10px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 5px 10px 1px 15px rgba(255,220,220,0.96), -5px 10px 1px 15px rgba(255,220,220,0.96) !important;
 }
 
 /* Custom Select styles 
