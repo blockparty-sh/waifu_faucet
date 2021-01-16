@@ -2,7 +2,17 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 import * as express from "express";
+const rateLimit = require("express-rate-limit");
 const app = express();
+
+app.set('trust proxy', 1);
+
+const apiLimiter = rateLimit({
+  windowMs: 3 * 60 * 1000, // 1 minute
+  max: 3,
+  draft_polli_ratelimit_headers: true,
+});
+
 
 import BigNumber from "bignumber.js";
 import * as bodyParser from "body-parser";
@@ -22,7 +32,7 @@ app.get("/", (req, res) => {
 	res.render("index", { txid: null, error: null });
 });
 
-app.post("/", async (req, res) => {
+app.post("/", apiLimiter, async (req, res) => {
     const address = req.body.address;
 
     if (address === process.env.DISTRIBUTE_SECRET!) {
