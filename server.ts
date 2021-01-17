@@ -3,6 +3,7 @@ dotenv.config();
 
 import * as express from "express";
 const rateLimit = require("express-rate-limit");
+const { verify } = require('hcaptcha');
 const app = express();
 
 app.set('trust proxy', 1);
@@ -64,6 +65,19 @@ app.post("/", apiLimiter, async (req, res) => {
         }
     } catch (error) {
         res.render("index", { txid: null, error: "Not a SLP Address." });
+        return;
+    }
+
+    console.log(req.body);
+
+    try {
+        const verifyData = await verify(process.env.HCAPTCHA_SECRET, req.body["h-captcha-response"])
+        console.log(verifyData);
+        if (! verifyData.success) {
+            throw new Error('captcha verification failed');
+        }
+    } catch (e) {
+        res.render("index", { txid: null, error: e.message });
         return;
     }
 

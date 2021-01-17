@@ -55,6 +55,7 @@
       })();
     </script>
     <!-- End Matomo Code -->
+    <script src="https://hcaptcha.com/1/api.js" async defer></script>
   </head>
   <body>
     <header class="masthead mb-auto bg-dark">
@@ -69,20 +70,21 @@
             <h1>Waifu Faucet</h1>
         <p class="outline">The Waifu faucet is designed to bring awareness and circulation to the Waifu economy.</p>
 
-        <form class="token-selector-form" action="/" method="post" >
-          <input name="address" type="text" placeholder="Enter your SLP address, ex: simpleledger:qp7l6ns2g…" required>
-          
+        <form id="faucet-form" class="token-selector-form" action="/" method="post" >
           <% if(txid !== null){ %>
-          <p>
-          Congratulations, please click on your new waifu<br>
-          <a href="https://simpleledger.info/#token/<%= txid %>"><img src="https://icons.waifufaucet.com/128/<%= txid %>.png"></a></p>
+            <p>
+              Congratulations, please click on your new waifu<br>
+              <a href="https://simpleledger.info/#token/<%= txid %>"><img src="https://icons.waifufaucet.com/128/<%= txid %>.png"></a>
+            </p>
+          <% } else { %>
+            <input name="address" type="text" placeholder="Enter your SLP address, ex: simpleledger:qp7l6ns2g…" required>
+            <div class="h-captcha" data-sitekey="d2fc47e8-23bc-468d-99a2-f4cd47ff257b"></div>
+            <% if(error !== null){ %>
+              <p>error: <%= error %></p>
+            <% } %>
+            <p>Get your SLP address with <a href="https://simpleledger.cash/project/electron-cash-slp-edition/">Electron Cash SLP Edition</a>.</p>
+            <p><input id="submit-btn" type="submit" value="Claim free Waifu :)"></p>
           <% } %>
-    
-          <% if(error !== null){ %>
-            <p>error: <%= error %></p>
-          <% } %>
-          <p>Get your SLP address with <a href="https://simpleledger.cash/project/electron-cash-slp-edition/">Electron Cash SLP Edition</a>.</p>
-          <p><input type="submit" value="Claim free Waifu :)"></p>
         </form>
           <!-- end .token-selector-form -->
           

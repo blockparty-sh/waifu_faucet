@@ -74,3 +74,7 @@ function closeAllSelect(elmnt) {
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
+
+document.getElementById('faucet-form').onsubmit = function() {
+    document.getElementById('submit-btn').disabled = true;
+};
