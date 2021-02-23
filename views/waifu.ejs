@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Claim free Waifus">
+  
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="apple-mobile-web-app-title" content="Waifu Faucet">
+    <meta name="application-name" content="Waifu Faucet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Social Cards -->
+    <meta name="twitter:title" content="Waifu Faucet" />
+    <meta name="twitter:description" content="Claim your own Waifu with Bitcoin Cash" />
+    <meta name="twitter:image" content="https://waifufaucet.com/img/social.jpg" />
+    <meta name="twitter:image:alt" content="The Waifu Faucet" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:url" content="https://waifufaucet.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Waifu Faucet" />
+    <meta property="og:description" content="Claim your own Waifu with Bitcoin Cash" />
+    <meta property="og:image" content="https://waifufaucet.com/img/social.jpg" />
+    <meta property="og:site_name" content="Waifu Faucet">
+
+    <title>Waifu Faucet</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@200&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="/css/custom.css" rel="stylesheet">
+    <!-- Matomo -->
+    <script type="text/javascript">
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.fountainhead.cash/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '12']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+  </head>
+  <body>
+    <main role="main">
+      <div class="jumbotron no-bg text-center p-5">
+          <h1 id="name"><%= name %></h1>
+
+        <p>
+          <a href="https://simpleledger.info/#token/<%= tokenid %>"><img src="https://icons.waifufaucet.com/original/<%= tokenid %>.png"></a>
+        </p>
+      <!-- end .jumbotron -->
+      
+      <div class="blurb traits bg-secondary p-5">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h3>Beliefs</h3>
+
+              <ul>
+                <% for (let m of data.beliefs) { %>
+                  <li><%= m %></li>
+                <% } %>
+              </ul>
+
+              <div class="divider"></div>
+              <h3>Facets</h3>
+           
+              <ul>
+                <% for (let m of data.facets) { %>
+                  <li><%= m %></li>
+                <% } %>
+              </ul>
+
+              <div class="divider"></div>
+              <h3>Body</h3>
+           
+              <ul>
+                <% for (let m of data.body) { %>
+                  <li><%= m %></li>
+                <% } %>
+              </ul>
+
+              <div class="divider"></div>
+              <h3>Soul</h3>
+           
+              <ul>
+                <% for (let m of data.soul) { %>
+                  <li><%= m %></li>
+                <% } %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <a href="https://t.me/waifuresearch">Waifu Research Telegram Group</a>
+      <br>
+      <!-- end .blurb -->
+      
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

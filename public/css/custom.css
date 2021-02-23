@@ -17,11 +17,17 @@ body {
     border: 10px solid white;
     border-width: 10px 25px 19px 12px;
 }
+.blurb.traits {
+    border-radius: 5%;
+}
 .jumbotron {
 	background: url('../img/social.jpg') no-repeat;
     background-size: 100%;
 	padding: 6rem 2rem;
     padding-top:0rem!important;
+}
+.no-bg {
+    background: none;
 }
 
 h3 { font-size: 32px; font-weight: 700; }
@@ -244,6 +250,10 @@ h1 {
     -webkit-text-stroke-color: #252525;
 }
 
+h1#name {
+    font-size: 6rem;
+}
+
 ::selection {
     background: pink;
     color: white;
@@ -277,3 +287,6 @@ h1 {
 	.custom-select, .token-selector-form input[type="text"], .token-selector-form select, .token-selector-form input[type="submit"] { width: 100%!important; }	
 }
 
+li {
+    list-style: none;
+}
