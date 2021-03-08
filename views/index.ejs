@@ -70,21 +70,9 @@
             <h1>Waifu Faucet</h1>
         <p class="outline">The Waifu faucet is designed to bring awareness and circulation to the Waifu economy.</p>
 
-        <form id="faucet-form" class="token-selector-form" action="/" method="post" >
-          <% if(txid !== null){ %>
-            <p>
-              Congratulations, please click on your new waifu<br>
-              <a href="https://simpleledger.info/#token/<%= txid %>"><img src="https://icons.waifufaucet.com/128/<%= txid %>.png"></a>
-            </p>
-          <% } else { %>
-            <input name="address" type="text" placeholder="Enter your SLP address, ex: simpleledger:qp7l6ns2g…" required>
-            <div class="h-captcha" data-sitekey="d2fc47e8-23bc-468d-99a2-f4cd47ff257b"></div>
-            <% if(error !== null){ %>
-              <p>error: <%= error %></p>
-            <% } %>
-            <p>Get your SLP address with <a href="https://simpleledger.cash/project/electron-cash-slp-edition/">Electron Cash SLP Edition</a>.</p>
-            <p><input id="submit-btn" type="submit" value="Claim free Waifu :)"></p>
-          <% } %>
+        <form id="faucet-form" class="token-selector-form" action="https://www.juungle.net" method="get" >
+            <p>The Waifu Faucet has run out of Waifus. To collect more visit <a href="https://www.juungle.net">🌴 Juungle</a>.</p>
+            <p><input id="submit-btn" type="submit" value="Continue to Juungle :)"></p>
         </form>
           <!-- end .token-selector-form -->
           
